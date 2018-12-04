@@ -1,7 +1,6 @@
 package bean;
 import java.sql.*;
 
-import com.unit.DB;
 public class AccountDao {
 
 	
