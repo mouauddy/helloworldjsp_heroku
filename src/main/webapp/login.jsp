@@ -40,7 +40,7 @@ div.ex {
  
   <div style="margin-top: 10px" class="ex">
     <form action="loginprocess.jsp"  method="post" name="sample" onsubmit="return validate()">
-      UserName: <input type="email" name="username" style="margin-left: 23px" required />
+      UserName: <input type="text" name="username" style="margin-left: 23px" required />
       <br><br>
       Password: <input type="password" name="pass" maxlength="16"  required /><br><br>
       <input type="submit" value="Login">
