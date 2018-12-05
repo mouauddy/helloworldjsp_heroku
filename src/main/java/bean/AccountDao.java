@@ -1,22 +1,26 @@
 package bean;
 import java.sql.*;
+import java.text.ParseException;
 
 public class AccountDao {
 
 	
-	public static int save(String name,String accno,String address,String email,String contact,String city){
+	public static int save(contactbean bean) throws ParseException{
 		int status=0;
-		try{
+		
+		
+try{
 			Connection con=DB.getConnection();
-			PreparedStatement ps=con.prepareStatement("INSERT INTO public.\"tblAcc_Info\"(\r\n" + 
-					"acc_name, acc_number, address, email, phone, city)\r\n" + 
+			PreparedStatement ps=con.prepareStatement("INSERT INTO public.\"tblcontact_info\"(\r\n" + 
+					"firstname, lastname, dob,address, email, contactno)\r\n" + 
 					"	VALUES (?, ?, ?, ?, ?, ?);");
-			ps.setString(1,name);
-			ps.setString(2,accno);
-			ps.setString(3,email);
-			ps.setString(4,address);
-			ps.setString(5,city);
-			ps.setString(6,contact);
+			ps.setString(1,bean.getUname());
+			ps.setString(2,bean.getlname());
+			ps.setString(3,bean.getdob());
+			ps.setString(4,bean.getAddress());
+			ps.setString(5,bean.getEmail());
+			ps.setString(6,bean.getContactno());
+			
 			status=ps.executeUpdate();
 			con.close();
 		}catch(Exception e){System.out.println(e);}
