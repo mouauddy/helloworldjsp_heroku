@@ -6,87 +6,293 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registration Page</title>
 <script>
-function validate(){
-	//keep document status up to date with boolean variable
-	var isValid = true;
-	//len of pass
-	var len = document.forms["sample"]["pass"].value.length;
-	//check if email still contains correct format for styling
-	if( /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.forms["sample"]["email"].value) ){
-	  document.getElementById('email').style.borderColor = "green";
-	  document.getElementById('p1').innerHTML="";
-	} else {
-	  document.getElementById('email').style.borderColor = "red";
-	  document.getElementById('p1').innerHTML=" Invalid email";
-	  isValid = false;
-	}
-	//if pass is less than 8 we return false
-	if(len < 8 ){
-		document.getElementById('pass').style.borderColor = "red";
-		document.getElementById('p2').innerHTML=" Invalid password";
-		isValid = false;
-	} else {
-		document.getElementById('pass').style.borderColor = "green";
-		document.getElementById('p2').innerHTML="";
-	}
-	
-	//check if password is alphanumeric, has 1 letter upper and lower and 1 number
-	var alphaNum = /^[a-zA-Z0-9]+$/;
-	var letter = /[a-z]/;
-	var upper = /[A-Z]/;
-	var number = /[0-9]/;
-	var pwd = document.forms["sample"]["pass"].value;
-	var valid = letter.test(pwd) && upper.test(pwd) && number.test(pwd) && alphaNum.test(pwd);
-	if( !valid ){
-		document.getElementById('pass').style.borderColor = "red";
-		document.getElementById('p2').innerHTML=" Invalid password";
-		isValid = false;
-	} else {
-	  document.getElementById('pass').style.borderColor = "green";
-	  document.getElementById('p2').innerHTML="";
+var isErr = false;
+
+function validateForm() {
+    if (username.value == "") {
+        isErr = true;
+        alert("Please enter your user name");
+        firstName.focus();
+		
+    }/* else if (!username.value.match(/^[A-Za-z]+$/)) {
+        isErr = true;
+        alert("user name can not contain numbers or Special Characters...");
+        firstName.focus();
+		
+    } else if ((middleName.value.length > 0) && (!middleName.value.match(/^[A-Za-z]+$/))) {
+        isErr = true;
+        alert("Middle name can not contain numbers or Special Characters...");
+        middleName.focus();
+		
+	}else if (lastName.value == "") {
+        isErr = true;
+        alert("Please enter your last name");
+        lastName.focus();
+		
+    } else if (!lastName.value.match(/^[A-Za-z]+$/)) {
+        isErr = true;
+        alert("Last name can not contain numbers or Special Characters...");
+        lastName.focus();
+		
+    } */else if (eMail.value == "") {
+        isErr = true;
+        alert("Please enter your Email");
+        eMail.focus();
+		
+    }else if (!eMail.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+        isErr = true;
+        alert("Please enter valid Email");
+        eMail.focus();
+		
+    }/* else if (mobileNo.value == "") {
+        isErr = true;
+        alert("Please enter mobile no.");
+        mobileNo.focus();
+		
+    }else if (mobileNo.value.length != 10) {
+        isErr = true;
+        alert("Please enter a valid Mobile No.");
+        mobileNo.focus();
+		
+    } */ else if (pass.value == "") {
+        isErr = true;
+        alert("Please enter a Password");
+        pass.focus();
+		
+    } else if (pass.value.length < 6) {
+        isErr = true;
+        alert("Password must contain atleast 6 characters.");
+        pass.focus();
+		
+    }else if (cnfrmpass.value == "") {
+        isErr = true;
+        alert("Please confirm your Password");
+        cnfrmpass.focus();
+		
+    }else if ((cnfrmpass.value.length>0) && (cnfrmpass.value != pass.value)) {
+        isErr = true;
+        alert("Password Mis-match. Reconfirm your Password.");
+        cnfrmpass.focus();
+		
+    } /* else if ((alternateMobileNo.value.length>0) && alternateMobileNo.value.length!=10) {
+        isErr = true;
+        alert("Please enter a valid alternate Mobile No.");
+        alternateMobileNo.focus();
+		
+    }else if (dob.value == "") {
+        isErr = true;
+        alert("Please enter your date of birth");
+        dob.focus();
+    
+}  */
+    if (!isErr) {
+        debugger;
+        //document.getElementById(form).submit();
+        document.forms["form"].submit();
+        alert("Form Submitted...");
+        return true;
     }
-	//return status of form
-	return isValid;
-	
+    return false;
 }
+
 </script>
 <style>
-  h2 {
-    display: inline-block;
-  }
-  h2 {
-    float: left;
-    margin-left: 20px;
-  }
-   
-div.ex {
-	text-align: right width:300px;
-	padding: 10px;
-	border: 5px solid grey;
-	margin: 0px
+
+#banner {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
 }
+
+#logo {
+	position: absolute;
+	top: 125px;
+	left: 50px;
+	right: 0px;
+	width: 150px;
+	height: 150px;
+	z-index: -1;
+}
+
+#welcometext{
+
+	font-size: 48px;
+	color: #ffffff;
+	text-align: center;
+	margin-top: -130px;
+	position: absolute;
+	top: 40%;
+	width: 100%;
+	font-variant: small-caps;
+}
+
+#signupForm{
+	color: #ffffff; /* Blue */
+	align: center;
+	position: absolute;
+	font-variant: small-caps;
+	top:30%;
+	width : 30%;
+	left : 35%;	
+	margin-bottom: 100px;
+}
+
+input[type="text"] {
+  display: block;
+  margin-top: 10;
+  font-family: sans-serif;
+  font-size: 15px;
+  color:#0293FF;
+  padding: 12px 20px;
+  argin: 8px 0;
+}
+input[type="text"]:focus {
+  border: solid 1px blue;
+  box-shadow: 0 0 5px 1px #02aaff;
+}
+
+
+input[type="Password"] {
+  display: block;
+  margin-top: 10;
+  font-family: sans-serif;
+  font-size: 15px;
+  color:#0293FF;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+input[type="Password"]:focus {
+  border: solid 1px blue;
+  box-shadow: 0 0 5px 1px #02aaff;
+}
+
+input[type="number"] {
+  display: block;
+  margin-top: 10;
+  font-family: sans-serif;
+  font-size: 15px;
+  color:#0293FF;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+input[type="number"]:focus {
+  border: solid 1px blue;
+  box-shadow: 0 0 5px 1px #02aaff;
+}
+
+input[type="date"] {
+  display: block;
+  margin-top: 10;
+  font-family: sans-serif;
+  font-size: 15px;
+  color:#0293FF;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+input[type="date"]:focus {
+  border: solid 1px blue;
+  box-shadow: 0 0 5px 1px #02aaff;
+}
+
+input[type="radio"]{
+  width     : 2em;
+  margin    : 0;
+  padding   : 10px;
+  font-size : 1em;
+}
+
+#submit_btm {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: 2px solid #0293ff; 
+    border-radius: 8px;
+    transition-duration: 0.4s
+}
+#submit_btm:hover {
+    background-color: #0293ff; 
+    color: white;
+}
+
+#reset_btn{
+	border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+	background-color: white;
+    color: black;
+	border-radius: 8px;
+	transition-duration: 0.4s
+}
+#reset_btn:hover {
+    background-color: #0293ff; 
+    color: white;
+}
+
 
 </style>
 </head>
 <body>
-  <div class ="ex" style="position: absolute;top: 0px;left: 0;width: 100%;">
-    <div style="background: #c48ec5;width: 100%;"><h2 style="color: grey;">Registration Page</h2>
-    <a href="login.jsp" style="text-decoration: none;color: white;float: right;margin-top: 20px;margin-right: 5px;">Return to Login</a>
-</div>
-<a href="index.jsp">Home</a>|  
-
-<a href="contact.jsp">Contacts</a>|
-<a href="account.jsp">Accounts</a>
-  <form name="sample" action="adduserprocess.jsp" method="post" onsubmit="return validate()">
-  <p>Choose user name</p>
-    <input id="username" name="username" type="text" maxlength=32 required><p id="p" style="color: red;display: inline;"></p>
-    <p>Choose valid email</p>
-    <input id="email" name="email" type="email" maxlength=32 required><p id="p1" style="color: red;display: inline;"></p>
-    <p>Choose password (alphanumeric, 1 upper, 1 lower, 1 number required)</p>
-    <input id="pass" name="pass" type="password" maxlength=16 required><p id="p2" style="color: red;display: inline;"></p>
-    <br><br>
-    <input type="submit" value="Submit">
+  <img id="banner" src="image\banner_img1.jpg" alt="Banner Image"/>
+	
+	<h3 id = "welcometext" align="center">Register with MySite</h3>
+	<fieldset id="signupForm">
+            <legend><b> Registration </b></legend>
+  <form name="sample" action="adduserprocess.jsp" method="post">
+  
+        <table align="center" cellpadding="5" cellspacing="0">
+        <tr>
+            <td>User Name:</td>
+            <td><input type="text" name="username" id="username" placeholder="required"></td>
+        </tr>
+		
+		
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="pass" id="pass" placeholder="atleast 6 characters."></td>
+        </tr>
+		<tr>
+            <td>Confirm Password:</td>
+            <td><input type="password" name="cnfrmpass" id="cnfrmpass" placeholder="required"></td>
+        </tr>
+		<tr>
+            <td>Email:</td>
+            <td><input type="text" name="email" id="email" placeholder="required"></td>
+        </tr>
+	
+      
+		<tr>
+			<td></td>
+		</tr>
+      
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td> 
+		</tr>
+        <tr>
+            <td>
+                <input type="submit" value="Submit" id="submit_btm" onclick="javascript:validateForm();">
+            </td>
+            <td>    
+                <input type="Reset" value="Reset" id="reset_btn">
+            </td>
+        </tr>
+    </table>
   </form>
-  </div>
+ </fieldset>
 </body>
 </html>
