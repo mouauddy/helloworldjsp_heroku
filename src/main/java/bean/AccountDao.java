@@ -1,6 +1,7 @@
 package bean;
 import java.sql.*;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class AccountDao {
 
@@ -26,6 +27,25 @@ try{
 		}catch(Exception e){System.out.println(e);}
 		return status;
 	}
+	public static int adduser(adduserbean bean) throws ParseException{
+		int userstatus=0;
+		
+		
+try{
+			Connection con=DB.getConnection();
+			PreparedStatement ps=con.prepareStatement("INSERT INTO public.\"tbl_userlogin\"(\r\n" + 
+					"username,user_password, email )\r\n" + 
+					" VALUES (?, ?, ?);");
+			ps.setString(1,bean.getUsername());
+			ps.setString(2,bean.getPass());
+			ps.setString(3,bean.getEmail());
+		
+			
+			userstatus=ps.executeUpdate();
+			con.close();
+		}catch(Exception e){System.out.println(e);}
+		return userstatus;
+	}
 	public static int delete(int id){
 		int status=0;
 		try{
@@ -42,7 +62,7 @@ try{
 		boolean status=false;
 		try{
 			Connection con=DB.getConnection();
-			PreparedStatement ps=con.prepareStatement("SELECT * FROM public.tbl_userinfo where username=? and password=?");
+			PreparedStatement ps=con.prepareStatement("SELECT * FROM public.tbl_userlogin where username=? and user_password=?");
 			ps.setString(1,bean.getUsername());  
 			ps.setString(2, bean.getPass()); 
 			ResultSet rs=ps.executeQuery();

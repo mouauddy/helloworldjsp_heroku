@@ -1,7 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-      <%@ include file="index.jsp" %>
+
     <%@page import="bean.AccountDao"%>  
     
 <jsp:useBean id="obj" class="bean.contactbean"/>  
@@ -15,8 +15,15 @@
 <style>
 table#nat{
 	width: 50%;
-	background-color: #c48ec5;
+	background-color: #E6E6FA;
 }
+   h2 {
+    display: inline-block;
+  }
+  h2 {
+    float: left;
+    margin-left: 20px;
+  }
 div.ex {
 	text-align: right width:300px;
 	padding: 10px;
@@ -26,6 +33,15 @@ div.ex {
 </style>
 </head>
 <body>  
+ <div class ="ex" style="position: absolute;top: 0px;left: 0;height:100%;width: 100%;">
+    <div style="background: #c48ec5;width: 100%;"><h2 style="color: white;">Welcome to the web application</h2>
+<a href="register.jsp" style="text-decoration: none;color: white;float: right;margin-top: 10px;margin-right: 5px;">Register here</a>
+</div>
+<a href="index.jsp">Home</a>|  
+
+<a href="contact.jsp">Contacts</a>|
+<a href="account.jsp">Accounts</a>
+</br>	
 <% 
 int status=AccountDao.save(obj);  
 if(status>0)
@@ -40,7 +56,8 @@ if(status>0)
 	
 
 	%>
-	 <div style="margin-top: 10px" class="ex">
+
+
 <table id ="nat">
 <tr>
 	<td>Full Name</td>
@@ -64,6 +81,6 @@ if(status>0)
 </tr>
 <tr></tr><tr><td></td><td></td><td><a href="index.jsp"><b>Back</b></a></td></tr>
 </table>
-</div>
+	</div>
 </body>
 </html>
