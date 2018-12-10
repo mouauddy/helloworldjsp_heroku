@@ -57,12 +57,12 @@ function validateForm() {
 
         #welcometext{
 
-            font-size: 48px;
+            font-size: 38px;
             color: #ffffff;
             text-align: center;
             margin-top: -170px;
             position: absolute;
-            top: 40%;
+            top: 30%;
             width: 100%;
             font-variant: small-caps;
         }
