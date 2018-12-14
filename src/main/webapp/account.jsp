@@ -1,85 +1,55 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+        <%@ include file="index.jsp" %>
+<!DOCTYPE html>
 <html>
 <head>
-
-</head>
-<script>
-var isErr = false;
-
-function validateForm() {
-	 if (username.value == "") {
-	        isErr = true;
-	        //username.setCustomValidity("Please Enter Email/Mobile No.");
-	         alert("Please enter your user name");
-	        username.focus();
-
-	    } else if (pass.value == "") {
-	        isErr = true;
-	        alert("Please Enter Password.");
-	        //pass.setCustomValidity("Please Enter Password.");
-	        pass.focus();		
-	    }
-    if (!isErr) {
-        debugger;
-        //document.getElementById(form).submit();
-        document.forms["loginform"].submit();
-
-        return true;
-    }
-    return false;
-}
-</script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>Twillo app</title>
- <style>
-            #search1{margin-left: 370px;}
-            #nameField{width:500px;}
-            .l1{margin-left:350px;}
-            #b1{margin-left: 350px;}
-        </style>
-
-
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <body>
+<h4> Account Page</h4>
+<center>
+            <table border="0" width="30%" cellpadding="3">
+                <thead>
+                    <tr>
+                        <th colspan="2">Add Account  Here</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" name="uname" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" name="lname" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" name="email" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td><input type="text" name="address" value="" /></td>
+                    </tr>
+                   
+                    <tr>
+                        <td>Date of birth</td>
+                        <td><input type="text" name="dob" value="" /></td>
+                    </tr>
+                     <tr>
+                        <td>Contact No</td>
+                        <td><input type="text" name="contactno" value="" /></td>
+                    </tr>
+                    <tr>
+                       <center><td colspan="3"><input type="submit" value="Submit" /></td></center> 
+                       <!--  <td colspan="2"><input type="reset" value="Reset" /></td> -->
+                    </tr>
+                    
+                </tbody>
+            </table>
+            </center>
 
- <div class="navbar navbar-default">
-            <div class="container-fluid">
-            <div class="navbar-header">
-          
-            
-            </div>
-                <div class="collapse navbar-collapse" id="mynavbar-content">
-         		<ul class="nav navbar-nav">
-                        <li><a href="index.jsp">Home</a></li>                                              
-                       
-                        <li><a href="contact.jsp">Contact</a></li>
-                        <li class="active"><a href="account.jsp">Accounts</a></li>
-                       
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <form method="post" action="#">
-            
-           
-            
-            
-            
-        </form>
-   <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>
