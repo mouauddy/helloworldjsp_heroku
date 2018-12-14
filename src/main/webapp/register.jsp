@@ -9,57 +9,13 @@
 var isErr = false;
 
 function validateForm() {
+    
     if (username.value == "") {
         isErr = true;
         alert("Please enter your user name");
         firstName.focus();
 		
-    }/* else if (!username.value.match(/^[A-Za-z]+$/)) {
-        isErr = true;
-        alert("user name can not contain numbers or Special Characters...");
-        firstName.focus();
-		
-    } else if ((middleName.value.length > 0) && (!middleName.value.match(/^[A-Za-z]+$/))) {
-        isErr = true;
-        alert("Middle name can not contain numbers or Special Characters...");
-        middleName.focus();
-		
-	}else if (lastName.value == "") {
-        isErr = true;
-        alert("Please enter your last name");
-        lastName.focus();
-		
-    } else if (!lastName.value.match(/^[A-Za-z]+$/)) {
-        isErr = true;
-        alert("Last name can not contain numbers or Special Characters...");
-        lastName.focus();
-		
-    } */else if (eMail.value == "") {
-        isErr = true;
-        alert("Please enter your Email");
-        eMail.focus();
-		
-    }else if (!eMail.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-        isErr = true;
-        alert("Please enter valid Email");
-        eMail.focus();
-		
-    }/* else if (mobileNo.value == "") {
-        isErr = true;
-        alert("Please enter mobile no.");
-        mobileNo.focus();
-		
-    }else if (mobileNo.value.length != 10) {
-        isErr = true;
-        alert("Please enter a valid Mobile No.");
-        mobileNo.focus();
-		
-    } */ else if (pass.value == "") {
-        isErr = true;
-        alert("Please enter a Password");
-        pass.focus();
-		
-    } else if (pass.value.length < 6) {
+    }else if (pass.value.length < 6) {
         isErr = true;
         alert("Password must contain atleast 6 characters.");
         pass.focus();
@@ -74,17 +30,19 @@ function validateForm() {
         alert("Password Mis-match. Reconfirm your Password.");
         cnfrmpass.focus();
 		
-    } /* else if ((alternateMobileNo.value.length>0) && alternateMobileNo.value.length!=10) {
+    }else if (eMail.value == "") {
         isErr = true;
-        alert("Please enter a valid alternate Mobile No.");
-        alternateMobileNo.focus();
+        alert("Please enter your Email");
+        eMail.focus();
 		
-    }else if (dob.value == "") {
+    }else if (!eMail.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
         isErr = true;
-        alert("Please enter your date of birth");
-        dob.focus();
+        alert("Please enter valid Email");
+        eMail.focus();
+		
+    }  
     
-}  */
+}
     if (!isErr) {
         debugger;
         //document.getElementById(form).submit();
@@ -96,166 +54,60 @@ function validateForm() {
 }
 
 </script>
-<style>
-
-#banner {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-}
-
-#logo {
-	position: absolute;
-	top: 125px;
-	left: 50px;
-	right: 0px;
-	width: 150px;
-	height: 150px;
-	z-index: -1;
-}
-
-#welcometext{
-
-	font-size: 38px;
-	color: #ffffff;
-	text-align: center;
-	margin-top: -130px;
-	position: absolute;
-	top: 30%;
-	width: 100%;
-	font-variant: small-caps;
-}
-
-#signupForm{
-	color: #ffffff; /* Blue */
-	align: center;
-	position: absolute;
-	font-variant: small-caps;
-	top:30%;
-	width : 30%;
-	left : 35%;	
-	margin-bottom: 100px;
-}
-
-input[type="text"] {
-  display: block;
-  margin-top: 10;
-  font-family: sans-serif;
-  font-size: 15px;
-  color:#0293FF;
-  padding: 12px 20px;
-  argin: 8px 0;
-}
-input[type="text"]:focus {
-  border: solid 1px blue;
-  box-shadow: 0 0 5px 1px #02aaff;
-}
-
-
-input[type="Password"] {
-  display: block;
-  margin-top: 10;
-  font-family: sans-serif;
-  font-size: 15px;
-  color:#0293FF;
-  padding: 12px 20px;
-  margin: 8px 0;
-}
-input[type="Password"]:focus {
-  border: solid 1px blue;
-  box-shadow: 0 0 5px 1px #02aaff;
-}
-
-input[type="number"] {
-  display: block;
-  margin-top: 10;
-  font-family: sans-serif;
-  font-size: 15px;
-  color:#0293FF;
-  padding: 12px 20px;
-  margin: 8px 0;
-}
-input[type="number"]:focus {
-  border: solid 1px blue;
-  box-shadow: 0 0 5px 1px #02aaff;
-}
-
-input[type="date"] {
-  display: block;
-  margin-top: 10;
-  font-family: sans-serif;
-  font-size: 15px;
-  color:#0293FF;
-  padding: 12px 20px;
-  margin: 8px 0;
-}
-input[type="date"]:focus {
-  border: solid 1px blue;
-  box-shadow: 0 0 5px 1px #02aaff;
-}
-
-input[type="radio"]{
-  width     : 2em;
-  margin    : 0;
-  padding   : 10px;
-  font-size : 1em;
-}
-
-#submit_btm {
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    background-color: white;
-    color: black;
-    border: 2px solid #0293ff; 
-    border-radius: 8px;
-    transition-duration: 0.4s
-}
-#submit_btm:hover {
-    background-color: #0293ff; 
-    color: white;
-}
-
-#reset_btn{
-	border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 12px;
-	background-color: white;
-    color: black;
-	border-radius: 8px;
-	transition-duration: 0.4s
-}
-#reset_btn:hover {
-    background-color: #0293ff; 
-    color: white;
-}
-
-
-</style>
-</head>
-<body>
-  <img id="banner" src="image\banner_img1.jpg" alt="Banner Image"/>
+        <style>
+            #search1{margin-left: 370px;}
+            #nameField{width:500px;}
+            .l1{margin-left:350px;}
+            #b1{margin-left: 350px;}
+        </style>
+    </head>
+    <body>
+ 
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar-content">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+         
+            </div>
+                <div class="collapse navbar-collapse" id="mynavbar-content">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.jsp">Home</a></li>                                              
+                       
+                        <li><a href="contact.jsp">Contact</a></li>
+                        <li><a href="account.jsp">Accounts</a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+      <form method="post" action="adduserprocess.jsp">
+           
+            <div class="form-group"><label class="l1">User Name<input type="text" name="username"  class="form-control" id="nameField" placeholder="Enter Username" /></label></div>
+            <div class="form-group"><label class="l1">Password<input type="password" name="pass" class="form-control" id="nameField" placeholder="Enter password" /></label></div>
+            <div class="form-group"><label class="l1">Confirm Password<input type="password" class="form-control" name="cnfrmpass" id="nameField" placeholder="Enter Confirm Password" /></label></div>
+            <div class="form-group"><label class="l1">Email<input type="email" name="email" class="form-control" id="nameField" placeholder="abc@domain.com" /></label></div>
+           
+            
+            <button type="submit" class="btn btn-primary" id="b1">Submit</button>
+            <button type="reset" class="btn btn-default" id="b2">Reset</button>
+              
+        </form>
+<!--   <img id="banner" src="image\banner_img1.jpg" alt="Banner Image"/>
 	
 	<h3 id = "welcometext" align="center">Register with MySite</h3>
-	<fieldset id="signupForm">
+		<fieldset id="signupForm">
             <legend><b> Registration </b></legend>
   <form name="sample" action="adduserprocess.jsp" method="post">
   
         <table align="center" cellpadding="5" cellspacing="0">
+        
         <tr>
             <td>User Name:</td>
-            <td><input type="text" name="username" id="username" placeholder="required"></td>
+            <td><input type="text" name="username" id="namesfield" placeholder="required"></td>
         </tr>
 		
 		
@@ -271,12 +123,7 @@ input[type="radio"]{
             <td>Email:</td>
             <td><input type="text" name="email" id="email" placeholder="required"></td>
         </tr>
-	
-      
-		<tr>
-			<td></td>
-		</tr>
-      
+		
 		<tr>
 			<td></td>
 		</tr>
@@ -284,7 +131,7 @@ input[type="radio"]{
 			<td></td> 
 		</tr>
         <tr>
-            <td>
+             <td>
                 <input type="submit" value="Submit" id="submit_btm" onclick="javascript:validateForm();">
             </td>
             <td>    
@@ -293,6 +140,14 @@ input[type="radio"]{
         </tr>
     </table>
   </form>
- </fieldset>
+ </fieldset> -->
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>
