@@ -1,58 +1,52 @@
 package bean;
 
-import java.util.Date;
 
 public class contactbean {
-	String uname,lname,email,address,dob,contactno;
+	private String fname,lname, uaddress,email,mobile,dob;  
 	
 	  
-	public String getUname() {  
-	    return uname;  
+	public String geFname() {  
+	    return fname;  
 	}  
 	  
-	public void setUname(String uname) {  
-	    this.uname = uname;  
-	}
-
-	public String getlname() {
-		return lname;
-	}
-
-	public void setlname(String lname) {
-		this.lname=lname;
+	public void setFname(String fname) {  
+	    this.fname = fname;  
 	}  
 	
-	
-	public String getdob() {
-		return dob;
-	}
-
-	public void setdob(String dob) {
-		this.dob=dob;
+	public String getLname() {  
+	    return lname;  
+	}  
+	  
+	public void setLname(String lname) {  
+	    this.lname = lname;  
+	}  
+	public String getUaddress() {  
+	    return uaddress;  
+	}  
+	  
+	public void setUaddress(String uaddress) {  
+	    this.uaddress = uaddress;  
 	} 
-	
-	public String getAddress() {  
-	    return address;  
+	public String getMobile() {  
+	    return mobile;  
 	}  
-	  
-	public void setAddress(String address) {  
-	    this.address = address;  
-	}
-
+	
+	public void setMobile(String mobile) {  
+	    this.mobile = mobile;  
+	} 
 	public String getEmail() {  
 	    return email;  
 	}  
 	  
 	public void setEmail(String email) {  
 	    this.email = email;  
-	}  	  
+	}   
 	
-	public String getContactno() {
-		return contactno;
-	}
-
-	public void setContactno(String contactno) {
-		this.contactno=contactno;
+	public String getDob() {  
+	    return dob;  
 	}  
-	
+	  
+	public void setDob(String dob) {  
+	    this.dob = dob;  
+	}  
 }
