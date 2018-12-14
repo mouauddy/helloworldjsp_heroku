@@ -1,8 +1,8 @@
 package bean;
 
 public class adduserbean {
-	private String  username,pass,email;	
-	
+	private String username,pass,email;  
+	  
 	public String getEmail() {  
 	    return email;  
 	}  
@@ -26,7 +26,6 @@ public class adduserbean {
 	public void setUsername(String username) {
 		this.username = username;
 	}  
-	
-	
+	  
 
 }

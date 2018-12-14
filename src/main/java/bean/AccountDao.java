@@ -3,8 +3,6 @@ import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import javax.swing.JOptionPane;
-
 public class AccountDao {
 
 	
@@ -17,12 +15,12 @@ try{
 			PreparedStatement ps=con.prepareStatement("INSERT INTO public.\"tblcontact_info\"(\r\n" + 
 					"firstname, lastname, dob,address, email, contactno)\r\n" + 
 					"	VALUES (?, ?, ?, ?, ?, ?);");
-			ps.setString(1,bean.geFname());
-			ps.setString(2,bean.getLname());
-			ps.setString(3,bean.getDob());
-			ps.setString(4,bean.getUaddress());
+			ps.setString(1,bean.getUname());
+			ps.setString(2,bean.getlname());
+			ps.setString(3,bean.getdob());
+			ps.setString(4,bean.getAddress());
 			ps.setString(5,bean.getEmail());
-			ps.setString(6,bean.getMobile());
+			ps.setString(6,bean.getContactno());
 			
 			status=ps.executeUpdate();
 			con.close();
@@ -35,23 +33,15 @@ try{
 		
 try{
 			Connection con=DB.getConnection();
-			/*PreparedStatement ps1=con.prepareStatement("SELECT username FROM public.tbl_userlogin where username=?");
-			ps1.setString(1,bean.getUsername());  
-			ResultSet rs1=ps1.executeQuery();
-			if(rs1.next()) {
-                 JOptionPane.showMessageDialog(null,"The user is already exist");
-                // response.sendRedirect("index_true.jsp");
-            } else {*/
-            	PreparedStatement ps=con.prepareStatement("INSERT INTO public.\"tbl_userlogin\"(\r\n" + 
-    					"username, user_password, email)\r\n" + 
-    					" VALUES (?, ?, ?);");
-    			ps.setString(1,bean.getUsername());
-    			ps.setString(2,bean.getPass());
-    			ps.setString(3,bean.getEmail());
-    	
-    			userstatus=ps.executeUpdate();
-          //  }
+			PreparedStatement ps=con.prepareStatement("INSERT INTO public.\"tbl_userlogin\"(\r\n" + 
+					"username,user_password, email )\r\n" + 
+					" VALUES (?, ?, ?);");
+			ps.setString(1,bean.getUsername());
+			ps.setString(2,bean.getPass());
+			ps.setString(3,bean.getEmail());
+		
 			
+			userstatus=ps.executeUpdate();
 			con.close();
 		}catch(Exception e){System.out.println(e);}
 		return userstatus;
@@ -72,7 +62,7 @@ try{
 		boolean status=false;
 		try{
 			Connection con=DB.getConnection();
-			PreparedStatement ps=con.prepareStatement("SELECT username, user_password FROM public.tbl_userlogin where username=? and user_password=?");
+			PreparedStatement ps=con.prepareStatement("SELECT * FROM public.tbl_userlogin where username=? and user_password=?");
 			ps.setString(1,bean.getUsername());  
 			ps.setString(2, bean.getPass()); 
 			ResultSet rs=ps.executeQuery();
