@@ -1,64 +1,86 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<script>
-  function validate(){
-	  //getting length of password
-	  var len = document.forms["sample"]["pass"].value.length;
-	  //if valid length go to controller servlet to search for user
-	  if(len < 8 ){
-		  alert("Password length is less than 8 characters");
-		  return false;
-	  } else {
-		  return true;
-	  }
-  }
-</script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>Twillo app</title>
-    <style>
-       h2 {
-    display: inline-block;
-  }
-  h2 {
-    float: left;
-    margin-left: 20px;
-  }
-div.ex {
-	text-align: right width:300px;
-	padding: 10px;
-	border: 5px solid grey;
-	margin: 0px
-}
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <style>
+ .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
     
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+}
+  </style>    
 </head>
 <body>
-<!-- display tasks here -->
- 
-     <div class ="ex" style="position: absolute;top: 0px;left: 0;height:100%;width: 100%;">
-    <div style="background: #c48ec5;width: 100%;"><h2 style="color: white;">Welcome to the web application</h2>
-    <a href="register.jsp" style="text-decoration: none;color: white;float: right;margin-top: 20px;margin-right: 5px;">Register here</a>
-</div>
-<a href="index.jsp">Home</a>|
-<a href="contact.jsp">Contacts</a>|
-<a href="account.jsp">Accounts</a>
-    <form action="loginprocess.jsp"  method="post" name="sample" onsubmit="return validate()">
-      UserName: <input type="email" name="username"  required />
-      <br><br>
-      Password: <input type="password" name="pass" maxlength="16"  required /><br><br>
-      <input type="submit" value="Login">
-      
-    </form><br>
-  
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="contact.jsp">Contact</a></li>
+        <li><a href="account.jsp">Account</a></li>
+       <!--  <li><a href="#">Contact</a></li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li  class="active"><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
   </div>
-
-</body>
+</nav>
+<div class="container">
+  <h2>Login Form</h2>
+   <form method="post" action="loginprocess.jsp">
+            
+            <div class="col-xs-8">
+            <label class="l1">User Name</label>
+            <input type="text" name="username" class="form-control" id="nameField" placeholder="Enter username" />
+            </div><br>
+            <div class="col-xs-8"><label class="l1">Password</label><input type="password" name="pass" class="form-control" id="nameField" placeholder="********" /></div>
+         <div class="col-xs-8">
+               <br><button type="submit" class="btn btn-primary" id="b1" name="b1" value="Login">Login</button>
+            <a href="register.jsp" class="btn btn-default">Sign Up?</a>
+            </div>
+            
+            
+            
+        </form>
+</div>
+<footer  class="container-fluid text-center">
+  <p>© Untitled. All rights reserved.</p>
+</footer>
+</body> 
 </html>

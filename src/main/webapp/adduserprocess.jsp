@@ -7,84 +7,90 @@
 <jsp:setProperty property="*" name="obj"/>  
  <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Logged In</title>
-    <style>
-   
-        #banner {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            right: 0px;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <style>
+ .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
 
-        #logo {
-            position: absolute;
-            top: 125px;
-            left: 50px;
-            right: 0px;
-            width: 150px;
-            height: 150px;
-            z-index: -1;
-        }
-
-        #welcometext{
-
-            font-size: 48px;
-            color: #ffffff;
-            text-align: center;
-            margin-top: -130px;
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            font-variant: small-caps;
-        }
-        #login_btn {
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            background-color: white;
-            color: black;
-            border: 2px solid #0293ff; 
-            border-radius: 8px;
-            margin-top: 20%;
-            margin-left:47%;
-            transition-duration: 0.4s
-        }
-        #login_btn:hover {
-            background-color: #0293ff; 
-            color: white;
-        }
-        #login_btn:onclick {
-            background-color: #0293ff; 
-            color: white;
-        }
-
-  
-</style>
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+   footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+}
+  </style>     
 </head>
 <body>
-   <img id="banner" src="image\banner_img1.jpg"" alt="Banner Image"/>
-    <!-- <img id ="logo" src ="\loginRegistrationResources\logo.jpg" alt ="Logo Image"/> --> 
-    <% int userstatus=AccountDao.adduser(obj);  
-    if(userstatus>0){ %>
-<h1 id = "welcometext" align="center">Successfully Registered</h1>
-<% } else { %>
-<h1 id = "welcometext" align="center">"Sorry, email or password error"</h1>
-<% } %>
- <form action="index.jsp">
-        <input type="submit" name = "login" id="login_btn" value = "Login" onclick="index.jsp"><br><br>   
- 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.jsp">Home</a></li>
+        <li class="active"><a href="contact.jsp">Contact</a></li>
+        <li><a href="account.jsp">Account</a></li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        <% 
+int status=AccountDao.adduser(obj);  
+if(status>0)
 
-  </form>
+	out.print("");  
+	String uname = obj.getUsername();// request.getParameter("uname");
+	String email = obj.getEmail();//request.getParameter("email");
+	
+	%>
 
+
+<table class="table table-striped">
+<tr>
+	
+	<td colspan=2 align="center">Successfully registered &nbsp;<%= uname %> </td>
+</tr>
+
+<tr></tr><tr><td></td><td></td><td><a href="register.jsp"><b>Back</b></a></td></tr>
+</table>
+
+
+<footer class="container-fluid text-center">
+  <p>© Untitled. All rights reserved.</p>
+</footer>
 
 </body>
 </html>

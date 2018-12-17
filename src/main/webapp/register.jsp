@@ -3,63 +3,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Registration Page</title>
 <script>
 var isErr = false;
 
 function validateForm() {
+    
     if (username.value == "") {
         isErr = true;
         alert("Please enter your user name");
         firstName.focus();
 		
-    }/* else if (!username.value.match(/^[A-Za-z]+$/)) {
-        isErr = true;
-        alert("user name can not contain numbers or Special Characters...");
-        firstName.focus();
-		
-    } else if ((middleName.value.length > 0) && (!middleName.value.match(/^[A-Za-z]+$/))) {
-        isErr = true;
-        alert("Middle name can not contain numbers or Special Characters...");
-        middleName.focus();
-		
-	}else if (lastName.value == "") {
-        isErr = true;
-        alert("Please enter your last name");
-        lastName.focus();
-		
-    } else if (!lastName.value.match(/^[A-Za-z]+$/)) {
-        isErr = true;
-        alert("Last name can not contain numbers or Special Characters...");
-        lastName.focus();
-		
-    } */else if (eMail.value == "") {
-        isErr = true;
-        alert("Please enter your Email");
-        eMail.focus();
-		
-    }else if (!eMail.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-        isErr = true;
-        alert("Please enter valid Email");
-        eMail.focus();
-		
-    }/* else if (mobileNo.value == "") {
-        isErr = true;
-        alert("Please enter mobile no.");
-        mobileNo.focus();
-		
-    }else if (mobileNo.value.length != 10) {
-        isErr = true;
-        alert("Please enter a valid Mobile No.");
-        mobileNo.focus();
-		
-    } */ else if (pass.value == "") {
-        isErr = true;
-        alert("Please enter a Password");
-        pass.focus();
-		
-    } else if (pass.value.length < 6) {
+    }else if (pass.value.length < 6) {
         isErr = true;
         alert("Password must contain atleast 6 characters.");
         pass.focus();
@@ -74,17 +33,19 @@ function validateForm() {
         alert("Password Mis-match. Reconfirm your Password.");
         cnfrmpass.focus();
 		
-    } /* else if ((alternateMobileNo.value.length>0) && alternateMobileNo.value.length!=10) {
+    }else if (eMail.value == "") {
         isErr = true;
-        alert("Please enter a valid alternate Mobile No.");
-        alternateMobileNo.focus();
+        alert("Please enter your Email");
+        eMail.focus();
 		
-    }else if (dob.value == "") {
+    }else if (!eMail.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
         isErr = true;
-        alert("Please enter your date of birth");
-        dob.focus();
+        alert("Please enter valid Email");
+        eMail.focus();
+		
+    }  
     
-}  */
+}
     if (!isErr) {
         debugger;
         //document.getElementById(form).submit();
@@ -93,206 +54,94 @@ function validateForm() {
         return true;
     }
     return false;
-}
+
 
 </script>
-<style>
+         <style>
+ .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
 
-#banner {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+   footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
 }
-
-#logo {
-	position: absolute;
-	top: 125px;
-	left: 50px;
-	right: 0px;
-	width: 150px;
-	height: 150px;
-	z-index: -1;
-}
-
-#welcometext{
-
-	font-size: 38px;
-	color: #ffffff;
-	text-align: center;
-	margin-top: -130px;
-	position: absolute;
-	top: 30%;
-	width: 100%;
-	font-variant: small-caps;
-}
-
-#signupForm{
-	color: #ffffff; /* Blue */
-	align: center;
-	position: absolute;
-	font-variant: small-caps;
-	top:30%;
-	width : 30%;
-	left : 35%;	
-	margin-bottom: 100px;
-}
-
-input[type="text"] {
-  display: block;
-  margin-top: 10;
-  font-family: sans-serif;
-  font-size: 15px;
-  color:#0293FF;
-  padding: 12px 20px;
-  argin: 8px 0;
-}
-input[type="text"]:focus {
-  border: solid 1px blue;
-  box-shadow: 0 0 5px 1px #02aaff;
-}
-
-
-input[type="Password"] {
-  display: block;
-  margin-top: 10;
-  font-family: sans-serif;
-  font-size: 15px;
-  color:#0293FF;
-  padding: 12px 20px;
-  margin: 8px 0;
-}
-input[type="Password"]:focus {
-  border: solid 1px blue;
-  box-shadow: 0 0 5px 1px #02aaff;
-}
-
-input[type="number"] {
-  display: block;
-  margin-top: 10;
-  font-family: sans-serif;
-  font-size: 15px;
-  color:#0293FF;
-  padding: 12px 20px;
-  margin: 8px 0;
-}
-input[type="number"]:focus {
-  border: solid 1px blue;
-  box-shadow: 0 0 5px 1px #02aaff;
-}
-
-input[type="date"] {
-  display: block;
-  margin-top: 10;
-  font-family: sans-serif;
-  font-size: 15px;
-  color:#0293FF;
-  padding: 12px 20px;
-  margin: 8px 0;
-}
-input[type="date"]:focus {
-  border: solid 1px blue;
-  box-shadow: 0 0 5px 1px #02aaff;
-}
-
-input[type="radio"]{
-  width     : 2em;
-  margin    : 0;
-  padding   : 10px;
-  font-size : 1em;
-}
-
-#submit_btm {
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    background-color: white;
-    color: black;
-    border: 2px solid #0293ff; 
-    border-radius: 8px;
-    transition-duration: 0.4s
-}
-#submit_btm:hover {
-    background-color: #0293ff; 
-    color: white;
-}
-
-#reset_btn{
-	border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 12px;
-	background-color: white;
-    color: black;
-	border-radius: 8px;
-	transition-duration: 0.4s
-}
-#reset_btn:hover {
-    background-color: #0293ff; 
-    color: white;
-}
-
-
-</style>
-</head>
-<body>
-  <img id="banner" src="image\banner_img1.jpg" alt="Banner Image"/>
-	
-	<h3 id = "welcometext" align="center">Register with MySite</h3>
-	<fieldset id="signupForm">
-            <legend><b> Registration </b></legend>
-  <form name="sample" action="adduserprocess.jsp" method="post">
-  
-        <table align="center" cellpadding="5" cellspacing="0">
-        <tr>
-            <td>User Name:</td>
-            <td><input type="text" name="username" id="username" placeholder="required"></td>
-        </tr>
-		
-		
-        <tr>
-            <td>Password:</td>
-            <td><input type="password" name="pass" id="pass" placeholder="atleast 6 characters."></td>
-        </tr>
-		<tr>
-            <td>Confirm Password:</td>
-            <td><input type="password" name="cnfrmpass" id="cnfrmpass" placeholder="required"></td>
-        </tr>
-		<tr>
-            <td>Email:</td>
-            <td><input type="text" name="email" id="email" placeholder="required"></td>
-        </tr>
-	
-      
-		<tr>
-			<td></td>
-		</tr>
-      
-		<tr>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td> 
-		</tr>
-        <tr>
-            <td>
-                <input type="submit" value="Submit" id="submit_btm" onclick="javascript:validateForm();">
-            </td>
-            <td>    
-                <input type="Reset" value="Reset" id="reset_btn">
-            </td>
-        </tr>
-    </table>
-  </form>
- </fieldset>
+  </style>        
+    </head>
+    <body>
+ 
+      <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="contact.jsp">Contact</a></li>
+        <li><a href="account.jsp">Account</a></li>
+       <!--  <li><a href="#">Contact</a></li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <h2>Register Form</h2>
+      <form method="post" action="adduserprocess.jsp">
+           
+             <div class="col-xs-8">
+             <label class="l1">User Name</label>
+             <input type="text" name="username"  class="form-control" id="nameField" placeholder="Enter Username" />
+             </div>
+             <div class="col-xs-8"><label class="l1">Password</label>
+             <input type="password" name="pass" class="form-control" id="nameField" placeholder="Enter password" />
+             </div>
+            <div class="col-xs-8"><label class="l1">Confirm Password</label>
+            <input type="password" class="form-control" name="cnfrmpass" id="nameField" placeholder="Enter Confirm Password" />
+            </div>
+            <div class="col-xs-8"><label class="l1">Email</label>
+            <input type="email" name="email" class="form-control" id="nameField" placeholder="abc@domain.com" />
+            </div>
+           
+            <div class="col-xs-8">
+            <br><button type="submit" class="btn btn-primary" id="b1">Submit</button> 
+            <button type="reset" class="btn btn-default" id="b2">Reset</button>
+            </div>
+        
+              
+        </form>
+        </div>
+<footer class="container-fluid text-center">
+  <p>© Untitled. All rights reserved.</p>
+</footer>
 </body>
 </html>

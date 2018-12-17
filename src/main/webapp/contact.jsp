@@ -1,78 +1,99 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-     
-       
-<!DOCTYPE html>
 <html>
 <head>
-<style>
-       h2 {
-    display: inline-block;
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <style>
+ .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
   }
-  h2 {
-    float: left;
-    margin-left: 20px;
-  }
-div.ex {
-	text-align: right width:300px;
-	padding: 10px;
-	border: 5px solid grey;
-	margin: 0px
-}
-</style>
-<meta charset="ISO-8859-1">
-<title>Twillo application</title>
 
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0px;
+  
+}
+  </style>    
 </head>
 <body>
- <div class ="ex" style="position: absolute;top: 0px;left: 0;height:100%;width: 100%;">
-    <div style="background: #c48ec5;width: 100%;"><h2 style="color: white;">Welcome to the web application</h2>
-    <a href="register.jsp" style="text-decoration: none;color: white;float: right;margin-top: 20px;margin-right: 5px;">Register here</a>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.jsp">Home</a></li>
+        <li class="active"><a href="contact.jsp">Contact</a></li>
+        <li><a href="account.jsp">Account</a></li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <h2>Contact Form</h2>
+      <form method="post" action="contactprocess.jsp">
+     
+              
+           <div class="col-xs-8"><label class="l1">First Name</label>
+           <input type="text" name="fname"  class="form-control" id="nameField" placeholder="Enter Firstname">
+           </div>
+           <div class="col-xs-8"><label class="l1">Last Name</label>
+           <input type="text" name="lname" class="form-control" id="nameField" placeholder="Enter Lastname" />
+           </div>
+            <div class="col-xs-8"><label class="l1">Email</label>
+            <input type="email" name="email" class="form-control" id="nameField" placeholder="abc@domain.com" />
+            </div>
+            <div class="col-xs-8"><label class="l1">Address</label>
+            <textarea class="form-control" name="uaddress" id="nameField" placeholder="Enter Address"></textarea>
+            </div>
+            <div class="col-xs-8"><label class="l1">Phone</label>
+            <input type="text" name="mobile" class="form-control" id="nameField" placeholder="(XXX)-XXX-XXXX"/>
+            </div>
+            <div class="col-xs-8"><label class="l1">Date of Birth</label>
+            <input type="date" name="dob" class="form-control" id="nameField" placeholder="dd/mm/yyyy"/>
+            </div>
+            <div class="col-xs-8"><br>
+            <button type="submit" class="btn btn-primary" id="b1">Submit</button>
+            <button type="reset" class="btn btn-default" id="b2">Reset</button>
+            <br>
+             </div> 
+        </form>
 </div>
-<a href="index.jsp">Home</a>|
-<a href="contact.jsp">Contacts</a>|
-<a href="account.jsp">Accounts</a>
-<form action="contactprocess.jsp" method="post"> 
-<table style="with: 50%">
-             
-                    <tr>
-                        <th colspan="2">Add contact  Here</th>
-                    </tr>
-             
-               
-                    <tr>
-                        <td>First Name</td>
-                        <td><input type="text" name="uname" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name</td>
-                        <td><input type="text" name="lname" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td><input type="text" name="email" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Address</td>
-                        <td><input type="text" name="address" value="" /></td>
-                    </tr>
-                   
-                    <tr>
-                        <td>Date of birth</td>
-                        <td><input type="text" name="dob" value="" /></td>
-                    </tr>
-                     <tr>
-                        <td>Contact No</td>
-                        <td><input type="text" name="contactno" value="" /></td>
-                    </tr>
-                    <tr>
-                       <center><td colspan="3"><input type="submit" value="Submit" /></td></center> 
-                       <!--  <td colspan="2"><input type="reset" value="Reset" /></td> -->
-                    </tr>
-             
-            </table>
-           
-</form>
-</div>
-</body>
+
+<footer class="container-fluid text-center">
+  <p>© untitled. all rights reserved.</p>
+</footer> 
+    </body>
 </html>

@@ -10,55 +10,83 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Display</title>
-<style>
-table#nat{
-	width: 50%;
-	background-color: #E6E6FA;
-}
-   h2 {
-    display: inline-block;
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+ .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
   }
-  h2 {
-    float: left;
-    margin-left: 20px;
-  }
-div.ex {
-	text-align: right width:300px;
-	padding: 10px;
-	border: 5px solid grey;
-	margin: 0px
-}
-</style>
-</head>
-<body>  
- <div class ="ex" style="position: absolute;top: 0px;left: 0;height:100%;width: 100%;">
-    <div style="background: #c48ec5;width: 100%;"><h2 style="color: white;">Welcome to the web application</h2>
-<a href="register.jsp" style="text-decoration: none;color: white;float: right;margin-top: 10px;margin-right: 5px;">Register here</a>
-</div>
-<a href="index.jsp">Home</a>|  
 
-<a href="contact.jsp">Contacts</a>|
-<a href="account.jsp">Accounts</a>
-</br>	
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+   footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.jsp">Home</a></li>
+        <li class="active"><a href="contact.jsp">Contact</a></li>
+        <li><a href="account.jsp">Account</a></li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <% 
 int status=AccountDao.save(obj);  
 if(status>0)
 
-	out.print("contact successfully added");  
-	String fname = obj.getUname();// request.getParameter("uname");
-	String lname =  obj.getlname();//request.getParameter("lname");
-	String Addr = obj.getAddress();//request.getParameter("address");
+out.print("contact successfully added");  
+	String fname = obj.geFname();// request.getParameter("uname");
+	String lname =  obj.getLname();//request.getParameter("lname");
+	String Addr = obj.getUaddress();//request.getParameter("address");
 	String email = obj.getEmail();//request.getParameter("email");
-	String contactno = obj.getContactno();//request.getParameter("contactno");
-	String dob = obj.getdob();//getParameter("dob");
-	
+	String contactno = obj.getMobile();//request.getParameter("contactno");
+	String dob = obj.getDob();//getParameter("dob");
+
 
 	%>
 
 
-<table id ="nat">
+<table class="table table-striped">
 <tr>
 	<td>Full Name</td>
 	<td><%= fname %> &nbsp; <%= lname %></td>
@@ -79,8 +107,10 @@ if(status>0)
 	<td>Date of Birth</td>
 	<td><%= dob %></td>
 </tr>
-<tr></tr><tr><td></td><td></td><td><a href="index.jsp"><b>Back</b></a></td></tr>
+<tr></tr><tr><td></td><td></td><td><a href="contact.jsp"><b>Back</b></a></td></tr>
 </table>
-	</div>
+	<footer class="container-fluid text-center">
+  <p>© Untitled. All rights reserved.</p>
+</footer>
 </body>
 </html>

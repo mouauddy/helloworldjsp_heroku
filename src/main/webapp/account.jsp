@@ -1,55 +1,91 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-        <%@ include file="index.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <style>
+ .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+   footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+}
+  </style>    
 </head>
 <body>
-<h4> Account Page</h4>
-<center>
-            <table border="0" width="30%" cellpadding="3">
-                <thead>
-                    <tr>
-                        <th colspan="2">Add Account  Here</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>First Name</td>
-                        <td><input type="text" name="uname" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name</td>
-                        <td><input type="text" name="lname" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td><input type="text" name="email" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Address</td>
-                        <td><input type="text" name="address" value="" /></td>
-                    </tr>
-                   
-                    <tr>
-                        <td>Date of birth</td>
-                        <td><input type="text" name="dob" value="" /></td>
-                    </tr>
-                     <tr>
-                        <td>Contact No</td>
-                        <td><input type="text" name="contactno" value="" /></td>
-                    </tr>
-                    <tr>
-                       <center><td colspan="3"><input type="submit" value="Submit" /></td></center> 
-                       <!--  <td colspan="2"><input type="reset" value="Reset" /></td> -->
-                    </tr>
-                    
-                </tbody>
-            </table>
-            </center>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="contact.jsp">Contact</a></li>
+        <li><a href="account.jsp">Account</a></li>
+       <!--  <li><a href="#">Contact</a></li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li  class="active"><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container text-center">    
+  <h3>What We Do</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="image/pic01.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Current Project</p>
+    </div>
+    <div class="col-sm-4"> 
+      <img src="image/pic04.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Project 2</p>    
+    </div>
+    <div class="col-sm-4">
+      <div class="well">
+       <p>Mauris neque quam, fermentum ut nisl vitae..</p>
+      </div>
+      <div class="well">
+       <p>Convallis maximus nisl sed mattis nunc id lorem euismod amet placerat...</p>
+      </div>
+    </div>
+  </div>
+</div><br>
 
-</body>
+<footer class="container-fluid text-center">
+  <p>© Untitled. All rights reserved.</p>
+</footer>
+
+</body> 
 </html>
