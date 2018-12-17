@@ -68,7 +68,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="image/b1.jpg" alt="Image">
+        <img src="image/b2.jpg" alt="Image">
         <div class="carousel-caption">
           <h3>Sell $</h3>
           <p>Money Money.</p>
@@ -76,7 +76,7 @@
       </div>
 
       <div class="item">
-        <img  src="image/b2.jpg" alt="Image">
+        <img  src="image/b1.jpg" alt="Image">
         <div class="carousel-caption">
           <h3>More Sell $</h3>
           <p>Lorem ipsum...</p>
