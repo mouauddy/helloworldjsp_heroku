@@ -61,21 +61,41 @@
         <li><a href="account.jsp">Account</a></li>
        <!--  <li><a href="#">Contact</a></li> -->
       </ul>
+       
       <ul class="nav navbar-nav navbar-right">
+      <% boolean status=AccountDao.validate(obj);  
+
+if(status==true){ 
+	 session.setAttribute("username",obj.getUsername());
+%>
+        <li><a href="logout.jsp"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+        <% } else { %>
         <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% } %>
       </ul>
+      
     </div>
   </div>
 </nav>
-    <% boolean status=AccountDao.validate(obj);  
+    <% boolean status1=AccountDao.validate(obj);  
 
-if(status==true){ %>
+if(status1==true){ 
+	 session.setAttribute("username",obj.getUsername());
+%>
 <table class="table table-striped">
 <tr>
-	<td colspan=2 align="center">Successfully Logged in</td>
+ <%
+        String email=(String)session.getAttribute("username");
+        
+        //redirect user to login page if not logged in
+        if(email==null){
+            response.sendRedirect("index.jsp");
+        }
+        %>
+	<td colspan=2 align="center">Welcome <%=email%></td>
 	
 </tr>
-<tr></tr><tr><td></td><td></td><td><a href="login.jsp"><b>Back</b></a></td></tr>
+<!-- <tr></tr><tr><td></td><td></td><td><a href="login.jsp"><b>Back</b></a></td></tr> -->
 </table>
 
 <% } else { %>
@@ -85,7 +105,7 @@ if(status==true){ %>
 	<td colspan=2 align="center">"Sorry, email or password error"</td>
 
 </tr>
-<tr></tr><tr><td></td><td></td><td><a href="login.jsp"><b>Back</b></a></td></tr>
+<!-- <tr></tr><tr><td></td><td></td><td><a href="login.jsp"><b>Back</b></a></td></tr> -->
 </table>
 
 <% } %>
