@@ -28,14 +28,85 @@
       display: none; 
     }
   }
-  footer {
+   footer {
   position: absolute;
-  bottom: 0;
+  bottom: -110px;
   width: 100%;
-  height: 0px;
-  
+  height: 30px;
 }
-  </style>    
+body {
+    padding-top:0px;
+}
+fieldset {
+    border: thin solid #ccc; 
+    border-radius: 4px;
+    padding: 20px;
+    padding-left: 40px;
+    background: #fbfbfb;
+}
+legend {
+   color: #678;
+}
+.form-control {
+    width: 95%;
+}
+label small {
+    color: #678 !important;
+}
+span.req {
+    color:maroon;
+    font-size: 112%;
+}
+  </style> 
+<Script language="javascript">
+
+//validates text only
+function Validate(txt) {
+    txt.value = txt.value.replace(/^(?=.*\d)[a-zA-Z\s\d\/]+$/, '');
+}
+//validate email
+function email_validate(email)
+{
+var regMail = /^([_a-zA-Z0-9-]+)(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+([a-zA-Z]{2,3})$/;
+ 
+    if(regMail.test(email) == false)
+    {
+    document.getElementById("status").innerHTML    = "<span class='warning'>Email address is not valid yet.</span>";
+    }
+   /*  else
+    {
+    document.getElementById("status").innerHTML	= "<span class='valid'>Thanks, you have entered a valid Email address!</span>"; 
+    } */
+}
+function validatephone(phone) 
+{
+    var maintainplus = '';
+    var numval = phone.value
+    if ( numval.charAt(0)=='+' )
+    {
+        var maintainplus = '';
+    }
+    curphonevar = numval.replace(/[\\A-Za-z!"£$%^&\,*+_={};:'@#~,.Š\/<>?|`¬\]\[]/g,'');
+    phone.value = maintainplus + curphonevar;
+    var maintainplus = '';
+    phone.focus;
+} 
+// validate date of birth
+ function dob_validate(dob)
+{
+var regDOB = /^([0-9]{4})-((?:0?[1-9])|(?:1[0-2]))-((?:0?[1-9])|(?:[1-2][0-9])|(?:3[01]))([0-9]{2}:[0-9]{2}:[0-9]{2})?$/;
+ 
+    if(regDOB.test(dob) == false)
+    {
+   // document.getElementById("statusDOB").innerHTML	= "<span class='warning'>DOB is only used to verify your age.</span>";
+    }
+    else
+    {
+    document.getElementById("statusDOB").innerHTML	= "<span class='valid'>Thanks, you have entered a valid DOB!</span>"; 
+    } 
+} 
+
+</Script> 
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -62,38 +133,55 @@
   </div>
 </nav>
 <div class="container">
-  <h2>Contact Form</h2>
-      <form method="post" action="contactprocess.jsp">
-     
-              
-           <div class="col-xs-8"><label class="l1">First Name</label>
-           <input type="text" name="fname"  class="form-control" id="nameField" placeholder="Enter Firstname">
-           </div>
-           <div class="col-xs-8"><label class="l1">Last Name</label>
-           <input type="text" name="lname" class="form-control" id="nameField" placeholder="Enter Lastname" />
-           </div>
-            <div class="col-xs-8"><label class="l1">Email</label>
-            <input type="email" name="email" class="form-control" id="nameField" placeholder="abc@domain.com" />
+<div class="row">
+<div class="col-md-6">
+
+<form action="contactprocess.jsp" method="post" id="fileForm" role="form">
+<fieldset><legend class="text-center">Valid information is required to contact. <span class="req"><small> required *</small></span></legend>
+  
+<div class="form-group"> 
+<label for="firstname"><span class="req">* </span> First name: </label>
+<input class="form-control" type="text" name="fname" id = "txt" placeholder="Enter Firstname" onkeyup = "Validate(this)" required /> 
+<div id="errFirst"></div>    
+</div>
+ 
+<div class="form-group">
+<label for="lastname"><span class="req">* </span> Last name: </label> 
+<input class="form-control" type="text" name="lname" id = "txt" onkeyup = "Validate(this)" placeholder="Enter Lastname" required />  
+<div id="errLast"></div>
+</div>
+<div class="form-group">
+<label for="email"><span class="req">* </span> Email Address: </label> 
+<input class="form-control" required type="email" name="email" id = "email" placeholder="abc@domain.com"  onchange="email_validate(this.value);" required />   
+<div class="status" id="status"></div>
+</div>
+ <div class="form-group">
+<label for="address"><span class="req">* </span>  Address: </label> 
+            <textarea required class="form-control" name="uaddress" id="nameField" onkeyup = "add_validate(this)" placeholder="Enter Address"></textarea>
+            <div class="status" id="statusAdd"></div>
             </div>
-            <div class="col-xs-8"><label class="l1">Address</label>
-            <textarea class="form-control" name="uaddress" id="nameField" placeholder="Enter Address"></textarea>
+ <div class="form-group">
+<label for="phonenumber"><span class="req">* </span> Phone Number: </label>
+<input required type="text" name="mobile" id="mobile" class="form-control phone" maxlength="28" onkeyup="validatephone(this);" placeholder="(XXX)-XXX-XXXX"/> 
+</div> 
+   <div class="form-group">
+<label for="dob"><span class="req">* </span> Date of Birth: </label></label>
+            <input required type="date" name="dob" class="form-control" id="nameField" placeholder="dd/mm/yyyy" onkeyup="dob_validate(this);"/>
+             <div class="status" id="statusDOB"></div>
             </div>
-            <div class="col-xs-8"><label class="l1">Phone</label>
-            <input type="text" name="mobile" class="form-control" id="nameField" placeholder="(XXX)-XXX-XXXX"/>
-            </div>
-            <div class="col-xs-8"><label class="l1">Date of Birth</label>
-            <input type="date" name="dob" class="form-control" id="nameField" placeholder="dd/mm/yyyy"/>
-            </div>
-            <div class="col-xs-8"><br>
-            <button type="submit" class="btn btn-primary" id="b1">Submit</button>
-            <button type="reset" class="btn btn-default" id="b2">Reset</button>
-            <br>
-             </div> 
-        </form>
+ 
+<div class="form-group">
+<input class="btn btn-primary" type="submit" name="submit_reg" value="Submit">
+</div>
+</fieldset>
+</form><!-- ends contact form -->
+</div><!-- ends col-6 -->
+ 
+</div>
 </div>
 
 <footer class="container-fluid text-center">
-  <p>� untitled. all rights reserved.</p>
+  <p>© untitled. all rights reserved.</p>
 </footer> 
     </body>
 </html>

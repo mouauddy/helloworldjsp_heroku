@@ -63,13 +63,15 @@
 </nav>
 <div class="container">
   <h2>Login Form</h2>
-   <form method="post" action="loginprocess.jsp">
+  
+   <form method="post" data-toggle="validator" action="loginprocess.jsp">
             
             <div class="col-xs-8">
             <label class="l1">User Name</label>
-            <input type="text" name="username" class="form-control" id="nameField" placeholder="Enter username" />
+            <input type="text" name="username" class="form-control" id="nameField" placeholder="Enter username" required />
             </div><br>
-            <div class="col-xs-8"><label class="l1">Password</label><input type="password" name="pass" class="form-control" id="nameField" placeholder="********" /></div>
+            <div class="col-xs-8"><label class="l1">Password</label><input type="password" name="pass" data-minlength="8" class="form-control" id="nameField" placeholder="********" required /></div>
+           <!--  <div class="help-block">Minimum of 8 characters</div> -->
          <div class="col-xs-8">
                <br><button type="submit" class="btn btn-primary" id="b1" name="b1" value="Login">Login</button>
             <a href="register.jsp" class="btn btn-default">Sign Up?</a>
